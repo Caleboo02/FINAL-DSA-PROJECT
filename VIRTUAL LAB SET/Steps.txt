@@ -1,0 +1,58 @@
+Virtual Cybersecurity Lab Setup
+===============================
+
+Objective:
+----------
+To simulate a secure, real-world environment for offensive and defensive testing using Kali Linux and Windows 10 virtual machines.
+
+Tools Used:
+-----------
+- VirtualBox (Type 2 hypervisor)
+- Kali Linux ISO
+- Windows 10 ISO 
+
+Steps:
+------
+
+1. **Installed VirtualBox** on host system (Windows/Linux)
+
+2. **Created and configured Kali VM:**
+   - OS: Kali Linux (latest)
+   - RAM: 2 GB
+   - Storage: 20 GB dynamically allocated
+   - Network: Internal Network (named "LabNet")
+
+3. **Created and configured Windows 10 VM:**
+   - OS: Windows 10 Pro or Home
+   - RAM: 2 GB
+   - Storage: 20 GB dynamically allocated
+   - Network: Internal Network (same name as Kali)
+
+4. **Verified network isolation:**
+   - No internet access
+   - Both VMs connected only to each other
+
+5. **Set static IPs:**
+   - Kali: 192.168.10.2
+   - Windows: 192.168.10.3
+   - Subnet mask: 255.255.255.0
+
+6. **Ping Test:**
+   - Successfully pinged Windows from Kali
+   - Successfully pinged Kali from Windows
+
+7. **Tested Shared Folder Access:**
+   - Enabled guest additions on Kali
+   - Created shared folder to exchange files (optional)
+
+8. **Service Enumeration (Optional):**
+   - From Kali, used `nmap 192.168.10.3` to scan Windows open ports
+
+Result:
+--------
+A fully isolated and connected cybersecurity test lab ready for penetration testing and malware simulation.
+
+Author:
+--------
+Adenika Caleb Ayoola
+DSA Project

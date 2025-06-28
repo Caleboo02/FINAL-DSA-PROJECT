@@ -1,0 +1,56 @@
+Virtual Firewall Lab – pfSense Setup and Testing
+
+
+Objective:
+-----------
+To simulate a secure virtual firewall setup using pfSense to route and inspect network traffic between Kali Linux (attacker) and Windows 10 (target).
+
+Tools Used:
+------------
+- VirtualBox
+- pfSense ISO
+- Kali Linux VM
+- Windows 10 VM
+- Firefox
+
+Steps Taken:
+-------------
+
+1. **Created a new pfSense VM in VirtualBox**
+   - Added two network adapters:
+     • Adapter 1 (WAN): Attached to NAT
+     • Adapter 2 (LAN): Attached to Internal Network (named "LabNet")
+
+2. **Installed pfSense using default options**
+   - Set LAN IP: `192.168.100.1/24`
+   - Skipped WAN setup in the browser interface
+
+3. **Accessed pfSense GUI from Kali**
+   - Assigned Kali IP: `192.168.100.10`
+   - Opened browser and visited `https://192.168.100.1`
+
+4. **Enabled DHCP on pfSense LAN interface**
+   - Range: `192.168.100.50 – 192.168.100.100`
+
+5. **Connected Windows 10 VM to the same Internal Network**
+   - Received IP via DHCP: `192.168.100.53`
+
+6. **Created a firewall rule in pfSense**
+   - Allowed ICMP protocol to enable ping between machines
+
+7. **Tested communication**
+   - Kali pinged Windows and pfSense successfully
+   - Windows pinged pfSense and Kali successfully
+
+8. **Monitored logs**
+   - Went to `Status > System Logs > Firewall`
+   - Verified that ping (ICMP) traffic was being logged
+
+Result:
+--------
+The pfSense firewall successfully controlled and monitored traffic between Kali and Windows, simulating a real-world network security layer.
+
+Author:
+--------
+Adenika Caleb Ayoola
+DSA Project
